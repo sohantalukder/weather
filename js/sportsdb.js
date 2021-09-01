@@ -21,10 +21,8 @@ const displayTeam = data => {
         <div onclick="loadMealDetail()" class="card mt-5">
     <img src="${teamDetails.strTeamBadge}" alt="..." class="w-50 mx-auto pt-3"/>
         <div class="card-body">
-          <h3 class="card-title">${teamDetails.strTeam}</h3>
-          <p class="card-text">
-          ${teamDetails.strDescriptionDE}
-          </p>
+          <h3 class="card-title text-center">${teamDetails.strTeam}</h3>
+          
         </div>
         </div>
     `;

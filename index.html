@@ -25,7 +25,70 @@
         background-image: url(./chuttersnap-9AqIdzEc9pY-unsplash.jpg);
         background-repeat: no-repeat;
       }
+      #spinner {
+        display: none;
+      }
+      .lds-ellipsis {
+        display: inline-block;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        margin: auto;
+        width: 80px;
+        height: 80px;
+        transform: translate(-30%, -50%);
+      }
+      .lds-ellipsis div {
+        position: absolute;
+        top: 33px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: rgb(129, 140, 248);
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+      }
+      .lds-ellipsis div:nth-child(1) {
+        left: 8px;
+        animation: lds-ellipsis1 0.6s infinite;
+      }
+      .lds-ellipsis div:nth-child(2) {
+        left: 8px;
+        animation: lds-ellipsis2 0.6s infinite;
+      }
+      .lds-ellipsis div:nth-child(3) {
+        left: 32px;
+        animation: lds-ellipsis2 0.6s infinite;
+      }
+      .lds-ellipsis div:nth-child(4) {
+        left: 56px;
+        animation: lds-ellipsis3 0.6s infinite;
+      }
+      @keyframes lds-ellipsis1 {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes lds-ellipsis3 {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(0);
+        }
+      }
+      @keyframes lds-ellipsis2 {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(24px, 0);
+        }
+      }
     </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1
@@ -35,7 +98,17 @@
     </h1>
     <!-- Input Filed  -->
     <div
-      class="pt-2 w-1/3 relative flex mt-6 justify-center mx-auto text-gray-600"
+      class="
+        pt-2
+        md:flex-shrink-0
+        sm:max-w-lg
+        relative
+        flex
+        mt-6
+        justify-center
+        mx-auto
+        text-gray-600
+      "
     >
       <input
         class="
@@ -80,6 +153,13 @@
       </button>
     </div>
 
+    <!-- spinner  -->
+    <div id="spinner" class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <p
       id="error-text"
       class="font-normal text-xl mt-10 text-gray-600 text-center"
@@ -121,7 +201,10 @@
       <p class="text-center bottom-0 absolute w-full mb-10">
         Develop By
         <span
-          ><a href="https://www.facebook.com/sohantalukder0" class="text-white"
+          ><a
+            href="https://www.facebook.com/sohantalukder0"
+            target="block"
+            class="text-white"
             >Md. Sohan Talukder</a
           ></span
         >

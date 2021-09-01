@@ -1,12 +1,20 @@
 document.getElementById('error-text').style.display = 'none';
 
+const taggleSpinner = displayStyle => {
+  document.getElementById('spinner').style.display = displayStyle;
+}
+const taggleContainer = displayStyle => {
+  document.getElementById('containerWeather').style.display = displayStyle;
+}
+
 const searchbtn = async () => {
     const searchFiled = document.getElementById('search-field');
     const searchText = searchFiled.value;
     searchFiled.value = '';
 
     const url = `https://api.weatherapi.com/v1/current.json?key=7489c7043a2747328d255557212808&q=${searchText}`;
-
+  taggleSpinner('block');
+  taggleContainer('none');
     try {
         
         const res = await fetch(url);
@@ -24,6 +32,8 @@ const searchbtn = async () => {
 
 
 const displayWeather = data => {
+  taggleSpinner('none');
+  taggleContainer('block');
     const containerWeather = document.getElementById('containerWeather');
     containerWeather.textContent = '';
     const div = document.createElement('div');
